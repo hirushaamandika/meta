@@ -25,5 +25,5 @@ export async function onRequestPost({ request, env }) {
     })
   });
 
-  return new Response(res.ok ? 'OK' : 'Mail failed', { status: res.ok ? 200 : 502 });
+  return new Response(res.ok ? 'OK' : await res.text(), { status: res.ok ? 200 : 502 });
 }
